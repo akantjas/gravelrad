@@ -1,0 +1,9 @@
+<h1> Compare bikes</h1> 
+
+<% @bikes.each do |bike| %>
+    <div class="card"> 
+        <h2> <%= bike.name %> </h2>
+        <p> Weight: <%= bike.weight %> </p>
+        <p> Brand: <%= bike.brand %> </p>
+    </div>
+<% end %>   

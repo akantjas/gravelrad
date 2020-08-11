@@ -1,0 +1,7 @@
+<h1> <%= @bike.name %> </h1>
+<p> Weight: <%= @bike.weight %></p>
+<p> Brand: <%= @bike.brand %> </p>
+
+<%= link_to  "Edit", edit_bike_path(@bike) %>
+<%= link_to "Delete ", bike_path(@bike), method: :delete, data: { confirm: "Are you sure?" } %>
+<%= link_to  "Back", bikes_path %>

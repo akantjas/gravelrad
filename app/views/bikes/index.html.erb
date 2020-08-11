@@ -1,0 +1,19 @@
+<h1> All bikes</h1> 
+
+<%= link_to  "Create new bike", new_bike_path %>
+<div class="row">
+    <% @bikes.each do |bike| %>
+        <%= link_to bike_path(bike) do %>
+            <div class="col-3">
+                <div class="card" style="width: 18rem;">
+                    <%= image_tag "sample_photo.jpg", class: "card-img-top", alt: "Bike pic", width: 200 %>
+                    <div class="card-body">
+                        <h5 class="card-title"><%= bike.name %></h5>
+                        <p class="card-text">Weight: <%= bike.weight %></p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    <% end %>
+</div>
