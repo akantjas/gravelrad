@@ -1,6 +1,7 @@
 <h1> <%= @bike.name %> </h1>
-<p> Weight: <%= @bike.weight %></p>
+<%= cl_image_tag @bike.photo.key, height: 300, width: 400, crop: :fill %>
 <p> Brand: <%= @bike.brand %> </p>
+<p> Brand: <%= @bike.description %> </p>
 
 <%= link_to  "Edit", edit_bike_path(@bike) %>
 <%= link_to "Delete ", bike_path(@bike), method: :delete, data: { confirm: "Are you sure?" } %>
