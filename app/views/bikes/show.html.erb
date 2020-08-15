@@ -1,7 +1,29 @@
 <h1> <%= @bike.name %> </h1>
 <%= cl_image_tag @bike.photo.key, height: 300, width: 400, crop: :fill %>
 <p> Brand: <%= @bike.brand %> </p>
-<p> Brand: <%= @bike.description %> </p>
+<p> Description: <%= @bike.description %> </p>
+<p> Status: <%= @bike.status %> </p>
+<p> Weight: <%= @bike.weight %> </p>
+<p> Weight capacity: <%= @bike.weight_capacity %> </p>
+<p> Price: <%= @bike.price %> </p>
+<p> Frame: <%= @bike.frame %> </p>
+<p> Fork: <%= @bike.fork %> </p>
+<p> Tire max width: <%= @bike.tire_max_width %> </p>
+<p> Equipment: <%= @bike.equipment %> </p>
+<p> Front speeds: <%= @bike.front_speeds %> </p>
+<p> Cassette speeds: <%= @bike.cassette_speeds %> </p>
+<p> Brake: <%= @bike.brake %> </p>
+<p> Brake type: <%= @bike.brake_type %> </p>
+<p> Handlebar: <%= @bike.handlebar %> </p>
+<p> Handlebar type: <%= @bike.handlebar_type %> </p>
+<p> Seat: <%= @bike.seat %> </p>
+<p> Wheel rims: <%= @bike.wheel_rims %> </p>
+<p> Wheel hubs: <%= @bike.wheel_hubs %> </p>
+<p> Wheel tires: <%= @bike.wheel_tires %> </p>
+<p> Lights: <%= @bike.lights %> </p>
+<p> Fenders: <%= @bike.fenders %> </p>
+<p> Rack: <%= @bike.rack %> </p>
+
 
 <%= link_to  "Edit", edit_bike_path(@bike) %>
 <%= link_to "Delete ", bike_path(@bike), method: :delete, data: { confirm: "Are you sure?" } %>

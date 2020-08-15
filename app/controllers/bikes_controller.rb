@@ -41,6 +41,31 @@ class BikesController < ApplicationController
     end
     
     def bike_params
-        params.require(:bike).permit(:name, :brand, :description, :status, :photo)
+        params.require(:bike).permit(
+            :name,
+            :brand, 
+            :description, 
+            :weight,
+            :weight_capacity,
+            :price,
+            :status,
+            :frame,
+            :fork,
+            :tire_max_width,
+            :equipment,
+            :front_speeds,
+            :cassette_speeds,
+            :brake,
+            :brake_type,
+            :handlebar,
+            :handlebar_type,
+            :seat,
+            :wheel_rims,
+            :wheel_hubs,
+            :wheel_tires, 
+            :lights,
+            :fenders, 
+            :rack,
+            :photo)
     end
 end
