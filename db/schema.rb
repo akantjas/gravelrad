@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_11_152701) do
+ActiveRecord::Schema.define(version: 2020_08_15_150847) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,25 @@ ActiveRecord::Schema.define(version: 2020_08_11_152701) do
     t.float "weight_capacity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "price"
+    t.string "status"
+    t.string "frame"
+    t.string "fork"
+    t.string "tire_max_width"
+    t.string "equipment"
+    t.string "front_speeds"
+    t.string "cassette_speeds"
+    t.string "brake"
+    t.string "brake_type"
+    t.string "handlebar"
+    t.string "handlebar_type"
+    t.string "seat"
+    t.string "wheel_rims"
+    t.string "wheel_hubs"
+    t.string "wheel_tires"
+    t.string "lights"
+    t.string "fenders"
+    t.string "rack"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
