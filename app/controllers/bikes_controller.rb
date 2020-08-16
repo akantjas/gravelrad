@@ -2,7 +2,11 @@ class BikesController < ApplicationController
     before_action :set_bike, only: [:show, :edit, :update, :destroy] 
 
     def index
-        @bikes = Bike.all
+        if params[:query].present?
+            @bikes = Bike.search(params[:query])
+        else
+            @bikes = Bike.all   
+        end
     end
 
     def compare

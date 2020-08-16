@@ -1,6 +1,9 @@
 <h1> All bikes</h1> 
 
 <%= link_to  "Create new bike", new_bike_path %>
+
+<%= render 'search' %>
+
 <div class="row">
     <% @bikes.each do |bike| %>
         <%= link_to bike_path(bike) do %>
