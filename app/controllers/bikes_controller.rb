@@ -7,7 +7,7 @@ class BikesController < ApplicationController
         else
             @bikes = Bike.all   
         end
-    end
+    end 
 
     def compare
         @bikes = Bike.where(rating: 5)
