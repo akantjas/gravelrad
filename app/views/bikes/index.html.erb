@@ -3,7 +3,12 @@
 <%= link_to  "Create new bike", new_bike_path %>
 
 <%= render 'search' %>
-<%= render 'filter' %>
+
+<div data-controller="counter"> 
+    <div class="counter">
+        <span data-target="counter.count"><%= @bike_count %></span>
+  </div>
+</div> 
 
 <div class="row">
     <% @bikes.each do |bike| %>

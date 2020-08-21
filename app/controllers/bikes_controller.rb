@@ -1,5 +1,6 @@
 class BikesController < ApplicationController
     before_action :set_bike, only: [:show, :edit, :update, :destroy] 
+    before_action :set_counter
     # before_action :authenticate_user!, except: [:index, :show] 
 
     def index
@@ -41,6 +42,11 @@ class BikesController < ApplicationController
     end
 
     private
+  
+    def set_counter
+      @bike_count = Bike.count
+    end
+
     def set_bike
         @bike = Bike.find(params[:id])
     end
