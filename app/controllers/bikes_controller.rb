@@ -1,6 +1,6 @@
 class BikesController < ApplicationController
     before_action :set_bike, only: [:show, :edit, :update, :destroy] 
-    before_action :authenticate_user!, except: [:index, :show] 
+    # before_action :authenticate_user!, except: [:index, :show] 
 
     def index
         if params[:query].present?
