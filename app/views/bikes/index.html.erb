@@ -2,26 +2,24 @@
 
 <%= link_to  "Create new bike", new_bike_path %>
 
-<%= render 'search' %>
-
-<div data-controller="counter"> 
-    <div class="counter">
-        <span data-target="counter.count"><%= @bike_count %></span>
-  </div>
-</div> 
-
-<div class="row">
-    <% @bikes.each do |bike| %>
-        <%= link_to bike_path(bike) do %>
-            <div class="col-3">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <%= cl_image_tag bike.photo.key, height: 150, width: 200, crop: :fill %>
-                        <h5 class="card-title"><%= bike.name %></h5>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-        <% end %>
+<div class="row justify-content-center" data-controller="search">
+    <%= form_with(url: "/", method: :get, data: {action: "submit->search#submit"}) do |f| %>
+        <%= label_tag(:query, "Search for") %>
+        <%= text_field_tag :query, params[:query], data: {target: "search.query"} %>
+        <%= submit_tag("Search", class: "btn btn-primary") %>
     <% end %>
+    
+    
+      <!--  <%= form_tag root_path, method: :get, data: {action: "submit->search#submit"} do |f| %>
+        <%= text_field_tag :query, params[:query], data: {target: "search.query"},
+        class: "form-control",
+        placeholder: "Find your bike"
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %> 
+-->
+
+    <div id="bikes" data-target="search.bikes">
+        <%= render @bikes %>
+    </div>
 </div>

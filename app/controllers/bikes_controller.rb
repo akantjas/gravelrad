@@ -4,10 +4,15 @@ class BikesController < ApplicationController
     # before_action :authenticate_user!, except: [:index, :show] 
 
     def index
-        if params[:query].present?
+        if params[:query]
             @bikes = Bike.search(params[:query])
         else
             @bikes = Bike.all   
+        end
+
+        respond_to do |format|
+            format.html
+            format.json { render json: { bikes: @bikes } }
         end
     end 
 
