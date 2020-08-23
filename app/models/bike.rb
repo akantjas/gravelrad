@@ -1,8 +1,10 @@
 class Bike < ApplicationRecord
     has_one_attached :photo
 
-    scope :brand, ->(brand) { where brand: brand }
-    scope :status, ->(status) { where status: status } 
+    enum status: [:draft, :published]
+
+    scope :brand, ->(brand) { where("brand = ?", brand) }
+    scope :status, ->(status) { where("status = ?", status) } 
 
     include PgSearch::Model
     pg_search_scope :search,

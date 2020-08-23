@@ -2,29 +2,25 @@
 
 <%= link_to  "Create new bike", new_bike_path %>
 
-<div class="row justify-content-center" data-controller="search">
-    <%= form_with(url: "/", method: :get, data: {action: "submit->search#submit"}) do |f| %>
-        <%= label_tag(:query, "Search for") %>
-        <%= text_field_tag :query, params[:query], data: {target: "search.query"} %>
-        <%= submit_tag("Search", class: "btn btn-primary") %>
-    <% end %>
-    
-    
-      <!--  <%= form_tag root_path, method: :get, data: {action: "submit->search#submit"} do |f| %>
-        <%= text_field_tag :query, params[:query], data: {target: "search.query"},
-        class: "form-control",
-        placeholder: "Find your bike"
-        %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %> 
--->
+<!-- <div class="row justify-content-center" data-controller="search">
+      <%= form_with(url: "/", method: :get, data: {action: "submit->search#submit"}) do |f| %>
+          <%= label_tag(:query, "Search for") %>
+          <%= text_field_tag :query, params[:query], data: {target: "search.query"} %>
+          <%= submit_tag("Search", class: "btn btn-primary") %>
+      <% end %>
+
 
     <div id="bikes" data-target="search.bikes">
         <%= render @bikes %>
     </div>
-</div>
+</div>-->
 
 <div data-controller="select-filter" data-select-filter-url="<%= bikes_filter_path %>">
+  <%= form_with(url: "/", method: :get, data: {action: "submit->search#submit"}) do |f| %>
+          <%= label_tag(:query, "Search for") %>
+          <%= text_field_tag :query, params[:query], data: {target: "search.query"} %>
+          <%= submit_tag("Search", class: "btn btn-primary") %>
+  <% end %>
   <div class="left-col">
     <h2>Filter brands:</h2>
     <select name="brands" multiple size="<%= @brands.length %>"  data-action="select-filter#change">
@@ -39,6 +35,15 @@
     </select>
   </div>
   <div class="right-col" data-target="select-filter.bikes">
-    <%= render partial: 'bike_list', locals: { bikes: @bikes} %>
+    <%= render @bikes %>
   </div>
 </div>
+
+
+  <%= form_tag "products", method: :get do %>
+    <%= text_field_tag :query, params[:query], data: {target: "search.query"} %>
+   <!-- <%= select_tag (:status, options_for_select(Bike.statuses.to_a, params[:status]), include_blank: "Status") %>
+    <%= select_tag (:brand, options_for_select(Bike.brands.to_a), params[:brand]), include_blank: "Brand") %>
+    -->
+    <%= submit_tag("Search", class: "btn btn-primary") %>
+  <% end %>

@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2020_08_16_194159) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.float "price"
-    t.string "status"
+    t.integer "status", default: 0
     t.string "frame"
     t.string "fork"
     t.string "tire_max_width"

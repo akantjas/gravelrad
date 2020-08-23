@@ -1,7 +1,7 @@
 class AddFieldsToBikes < ActiveRecord::Migration[6.0]
   def change
     add_column :bikes, :price, :float
-    add_column :bikes, :status, :string
+    add_column :bikes, :status, :integer, default: 0  
     add_column :bikes, :frame, :string
     add_column :bikes, :fork, :string
     add_column :bikes, :tire_max_width, :string

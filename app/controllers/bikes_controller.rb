@@ -6,11 +6,11 @@ class BikesController < ApplicationController
     def index
         @brands = Bike.all.order(:brand).pluck(:brand).uniq
         @statuses = Bike.all.order(:status).pluck(:status).uniq
-        
+
         if params[:query]
             @bikes = Bike.search(params[:query])
         else
-            @bikes = Bike.all   
+            @bikes = Bike.where(nil)   
         end
 
         respond_to do |format|
