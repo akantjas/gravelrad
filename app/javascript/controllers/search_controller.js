@@ -3,10 +3,6 @@ import { Controller } from "stimulus";
 export default class extends Controller {
     static targets = ["query", "bikes"]
     
-    connect() {
-        console.log("Hello from Stimulus")
-    }
-
     submit() {
         const value = this.queryTarget.value
         fetch(`/?query=${value}`, {headers: { accept: 'application/json'}})
@@ -23,6 +19,7 @@ export default class extends Controller {
           });  
        }
     
+
     bikeTemplate(bike) {
         return `<h3>${bike.name}</h3>
         <h6>${bike.brand}</h6>`
