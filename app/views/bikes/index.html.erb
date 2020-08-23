@@ -32,6 +32,11 @@
         <option value="<%= brand %>"><%= brand.humanize %></option>
       <% end %>
     </select>
+     <select name="statuses" multiple size="<%= @statuses.length %>"  data-action="select-filter#change">
+      <%= @statuses.each do |status| %>
+        <option value="<%= status %>"><%= status.humanize %></option>
+      <% end %>
+    </select>
   </div>
   <div class="right-col" data-target="select-filter.bikes">
     <%= render partial: 'bike_list', locals: { bikes: @bikes} %>

@@ -1,5 +1,5 @@
 class BikesFilterController < ApplicationController
   def index
-    @bikes = Bike.brandfilter(params[:brands])
+    @bikes = Bike.brand(params[:brands]).status(params[:status])
   end
 end

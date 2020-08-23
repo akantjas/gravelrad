@@ -5,6 +5,8 @@ export default class extends Controller {
 
   change(event) {
 
+    console.log(event.target.selectedOptions.value)
+
     fetch(this.data.get("url"), {
       method: 'POST',
       body: JSON.stringify({ brand: [...event.target.selectedOptions].map(option => option.value)}),
