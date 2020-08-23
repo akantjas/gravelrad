@@ -5,12 +5,9 @@ export default class extends Controller {
 
   change(event) {
 
-    var filterParameter = JSON.stringify(event.target.name)
-    console.log(filterParameter.className)
-
     fetch(this.data.get("url"), {
       method: 'POST',
-      body: JSON.stringify({ filterParameter: [...event.target.selectedOptions].map(option => option.value)}),
+      body: JSON.stringify({ brand: [...event.target.selectedOptions].map(option => option.value)}),
       credentials: "include",
       dataType: 'script',
       headers: {

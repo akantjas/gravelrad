@@ -12,4 +12,6 @@ Rails.application.routes.draw do
       get '/compare', to: 'bikes#compare', as: :compare
     end
   end 
+
+  post 'bikes_filter', action: :index, controller: 'bikes_filter'
 end

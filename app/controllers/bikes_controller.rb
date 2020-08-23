@@ -4,6 +4,7 @@ class BikesController < ApplicationController
     # before_action :authenticate_user!, except: [:index, :show] 
 
     def index
+        @brands = Bike.all.order(:brand).pluck(:brand).uniq
         if params[:query]
             @bikes = Bike.search(params[:query])
         else

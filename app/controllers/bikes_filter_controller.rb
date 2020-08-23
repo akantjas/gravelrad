@@ -1,5 +1,5 @@
 class BikesFilterController < ApplicationController
   def index
-    @bikes = Bike.where(brand: params[:brands], brake_type: params[:brake_types]).order(:brand)
+    @bikes = Bike.where(brand: params[:brands]).order(:brand)
   end
 end

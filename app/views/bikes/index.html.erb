@@ -23,3 +23,17 @@
         <%= render @bikes %>
     </div>
 </div>
+
+<div data-controller="select-filter" data-select-filter-url="<%= bikes_filter_path %>">
+  <div class="left-col">
+    <h2>Filter brands:</h2>
+    <select name="brands" multiple size="<%= @brands.length %>"  data-action="select-filter#change">
+      <%= @brands.each do |brand| %>
+        <option value="<%= brand %>"><%= brand.humanize %></option>
+      <% end %>
+    </select>
+  </div>
+  <div class="right-col" data-target="select-filter.bikes">
+    <%= render partial: 'bike_list', locals: { bikes: @bikes} %>
+  </div>
+</div>
