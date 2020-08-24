@@ -30,7 +30,7 @@
     </select>
      <select name="statuses" multiple size="<%= @statuses.length %>"  data-action="select-filter#change">
       <%= @statuses.each do |status| %>
-        <option value="<%= status %>"><%= status.humanize %></option>
+        <option value="<%= status %>"><%= status %></option>
       <% end %>
     </select>
   </div>
@@ -38,12 +38,3 @@
     <%= render @bikes %>
   </div>
 </div>
-
-
-  <%= form_tag "products", method: :get do %>
-    <%= text_field_tag :query, params[:query], data: {target: "search.query"} %>
-   <!-- <%= select_tag (:status, options_for_select(Bike.statuses.to_a, params[:status]), include_blank: "Status") %>
-    <%= select_tag (:brand, options_for_select(Bike.brands.to_a), params[:brand]), include_blank: "Brand") %>
-    -->
-    <%= submit_tag("Search", class: "btn btn-primary") %>
-  <% end %>
